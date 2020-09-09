@@ -1,16 +1,27 @@
-const GOOGLE_MAPS_KEY = process.env.GOOGLE_MAPS_KEY
-
 /* 
 This component is based on this generic component (that I made too): 
 https://affectionate-stonebraker-6ad0ad.netlify.app/?path=/docs/googlemap-map--component
 (but I changed the code for implement in this specific case)
 */
+
 import { useState } from 'react';
 import mapStyle from './map-style';
 import markersData from './markers-data'
 
-//From where this come from: https://www.npmjs.com/package/react-google-maps
-//The warnings when console opens is because of this component (it is the only class component on the code)
+/*
+    The developer should create a .env.local file on the root of the project
+    Then insert this line (with the right key) GOOGLE_MAPS_KEY= "<your_API_Key_of_google_cloud>"
+
+    If you doesn't know how to get your API Key for google maps, please what this video: https://www.youtube.com/watch?v=5hTlSGD4_zk
+    Note 1: In 4:22, search by "Maps JavaScript API", and not the Translator, same thing in 5:41
+    Note 2: This video isn't mine =D
+*/
+const GOOGLE_MAPS_KEY = process.env.GOOGLE_MAPS_KEY
+
+/*
+    From where this come from: https://www.npmjs.com/package/react-google-maps
+    Note: The warnings when console opens is because of this component (it is the only class component on the code)
+*/
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 const Map = (props) => {
