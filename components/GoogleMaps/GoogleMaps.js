@@ -5,6 +5,7 @@ https://affectionate-stonebraker-6ad0ad.netlify.app/?path=/docs/googlemap-map--c
 */
 
 import { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import mapStyle from './map-style';
 import markersData from './markers-data'
 
@@ -27,37 +28,41 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'reac
 const Map = (props) => {
     const [selectedMarker, setSelectedMarker] = useState(null);
 
-    return (
-        <GoogleMap
-            defaultZoom={props.defaultZoom}
-            defaultCenter={{ lat: props.defaultLat, lng: props.defaultLng }}
-            defaultOptions={{ styles: mapStyle }}
-        >
-            {markersData.map(point => (
-                <Marker
-                    key={point.title}
-                    position={{ lat: point.lat, lng: point.lng }}
-                    onClick={() => setSelectedMarker(point)}
-                />
-            ))}
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
-            {selectedMarker && (
-                <InfoWindow
-                    position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
-                    onCloseClick={() => { setSelectedMarker(null) }}
-                >
-                    <div style={{ width: '200px' }} className='text-center'>
-                        <h6>{selectedMarker.title}</h6>
-                        <img
-                            src={selectedMarker.srcImage}
-                            alt={selectedMarker.alt}
-                            style={{ width: '150px' }}
-                        />
-                        <p>{selectedMarker.description}</p>
-                    </div>
-                </InfoWindow>
-            )}
-        </GoogleMap>
+    const handleClick = (place) => {
+        setSelectedMarker(place)
+        toggle();
+    }
+
+    return (
+        <>
+            <GoogleMap
+                defaultZoom={props.defaultZoom}
+                defaultCenter={{ lat: props.defaultLat, lng: props.defaultLng }}
+                defaultOptions={{ styles: mapStyle }}
+            >
+                {markersData.map(point => (
+                    <Marker
+                        key={`${point.lat}-${point.lng}`}
+                        position={{ lat: point.lat, lng: point.lng }}
+                        onClick={() => handleClick(point)}
+                    />
+                ))}
+            </GoogleMap>
+
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalBody>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+        </>
     );
 }
 
@@ -69,7 +74,6 @@ const GoogleMapComponent = (props) => {
         <div style={{ height: `500px`, width: '1000px' }}>
 
             <WrappedMap
-                //Remove or commment the line bellow... this key works only in Developer's adress (https://affectionate-stonebraker-6ad0ad.netlify.app/?path=/story/example-introduction--page)
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${GOOGLE_MAPS_KEY}`}
 
                 loadingElement={<div style={{ height: `100%` }} />}
