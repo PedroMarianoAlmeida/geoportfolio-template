@@ -12,6 +12,7 @@
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-google-maps": "^9.4.5",
     "reactstrap": "^8.5.1"
   }
 }
