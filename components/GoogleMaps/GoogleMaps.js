@@ -62,13 +62,13 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 const GoogleMapComponent = (props) => {
 
     return (
-        <div style={{ height: `500px`, width: '1000px' }}>
+        <div style={{ height: `100%`, width: '100%' }}>
 
             <WrappedMap
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${GOOGLE_MAPS_KEY}`}
 
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `400px` }} />}
+                containerElement={<div style={{ height: `100%` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
 
                 defaultZoom={props.defaultZoom}
