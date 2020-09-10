@@ -4,7 +4,8 @@ const Home = () => {
   return ( 
     <>
     <h1>Where I have been</h1>
-      <GoogleMapComponent defaultZoom={5} defaultLat={12} defaultLng={12} />
+      <img src='' />
+      <GoogleMapComponent defaultZoom={2} defaultLat={10} defaultLng={0} />
     </>
    );
 }
