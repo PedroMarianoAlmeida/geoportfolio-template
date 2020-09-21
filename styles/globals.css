@@ -51,7 +51,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: red;
+  /*Uncomment the line below to make layout test*/
+  /*background-color: red;*/
   width: 265px;
   height: 180px;
 }
@@ -66,7 +67,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: blue;
+  /*Uncomment the line below to make layout test*/
+  /*background-color: blue;*/
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -93,6 +95,10 @@
 }
 
 .horizontal-text{
+  display: none;
+}
+
+#full-mode-text{
   display: none;
 }
 

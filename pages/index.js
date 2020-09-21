@@ -17,12 +17,13 @@ const Home = () => {
 
       <div id='index-background-container'></div>
 
-      <div className='horizontal-text'>Behind</div>
+      <div id={fullMap ? 'full-mode-text' : ''} className='horizontal-text'>Behind</div>
 
       <div id={fullMap ? 'full-mode-index-background' : 'index-background'}>
         <div id='text-left' className='vertical-text'>Behind</div>
         <div id='text-right' className='vertical-text'>the lens</div>
         <div id={fullMap ? 'full-mode-map-container' : 'map-container'}>
+          {/*Insert GoogleMapComponents here to make layout tests and not waste API calls*/}
           <GoogleMapComponent defaultZoom={0} defaultLat={25} defaultLng={15}/>
         </div>
       </div>
