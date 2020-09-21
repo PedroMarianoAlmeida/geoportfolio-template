@@ -15,9 +15,13 @@ const MyModal = (props) => {
             </ModalBody>
 
             <ModalFooter>
-                <a href={props.externalLink} target='_blank' rel='noreferrer noopener' >
-                    <Button color="primary">Details</Button>
-                </a>
+                
+                <Button color="primary">
+                    <a href={props.externalLink} target='_blank' rel='noreferrer noopener' >
+                        Details
+                    </a>
+                </Button>
+                
                 <Button color="secondary" onClick={props.toggle}>Cancel</Button>
             </ModalFooter>
             
