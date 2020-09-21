@@ -5,7 +5,7 @@ This project is a template to be used any person/company who wants to show your 
 Click [here](https://geoportfolio-template.vercel.app/) to see the result.
 
 # Screenshot
-![Desktop](readme-documents/behind-the-lens.mp4)
+![Desktop](readme-documents/behind-the-lens.gif)
 
 # Tech Stack
 - Next.js
