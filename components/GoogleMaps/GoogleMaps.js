@@ -9,16 +9,6 @@ import mapStyle from './map-style';
 import markersData from './markers-data'
 
 /*
-    The developer should create a .env.local file on the root of the project
-    Then insert this line (with the right key) GOOGLE_MAPS_KEY= "<your_API_Key_of_google_cloud>"
-
-    If you doesn't know how to get your API Key for google maps, please what this video: https://www.youtube.com/watch?v=5hTlSGD4_zk
-    Note 1: In 4:22, search by "Maps JavaScript API", and not the Translator, same thing in 5:41
-    Note 2: This video isn't mine =D
-*/
-const GOOGLE_MAPS_KEY = process.env.GOOGLE_MAPS_KEY
-
-/*
     From where this come from: https://www.npmjs.com/package/react-google-maps
     Note: The warnings when console opens is because of this component (it is the only class component on the code)
 */
@@ -52,7 +42,7 @@ const Map = (props) => {
                 ))}
             </GoogleMap>
 
-            <MyModal shouldOpen={modal} toggle={toggle} selectedMarker={selectedMarker}/>
+            <MyModal shouldOpen={modal} toggle={toggle} selectedMarker={selectedMarker} />
         </>
     );
 }
@@ -65,7 +55,20 @@ const GoogleMapComponent = (props) => {
         <div style={{ height: `100%`, width: '100%' }}>
 
             <WrappedMap
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${GOOGLE_MAPS_KEY}`}
+                //Remove or commment the line bellow... this key works only in Developer's adress (https://geoportfolio-template.vercel.app/)
+                googleMapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBl4DJ7KtmPo6Kaoe3NKeYLDTkYzFMs3Pw'
+
+                /*
+                Steps to make this component works on your project:
+                1: Create a Google Cloud API Key 
+                Reference tutorial: https://www.youtube.com/watch?v=5hTlSGD4_zk
+                Note 1: In 4:22, search by "Maps JavaScript API", and not the Translator, same thing in 5:41
+                Note 2: This video isn't mine =D
+                2: Create a .env.local on your machine and insert the code: GOOGLE_MAPS_KEY= '<YOUR_API_KEY_VALUE>'               
+                
+                3: Uncomment the line bellow (googleMapUrl)
+                */                
+                //googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${GOOGLE_MAPS_KEY}`}
 
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `100%` }} />}
