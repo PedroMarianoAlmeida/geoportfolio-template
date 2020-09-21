@@ -15,8 +15,8 @@ const MyModal = (props) => {
             </ModalBody>
 
             <ModalFooter>
-                <a href={markerData.externalLink} target='_blank' rel='noreferrer noopener' >
-                    <Button color="primary" onClick={props.toggle}>Details</Button>
+                <a href={props.externalLink} target='_blank' rel='noreferrer noopener' >
+                    <Button color="primary">Details</Button>
                 </a>
                 <Button color="secondary" onClick={props.toggle}>Cancel</Button>
             </ModalFooter>
