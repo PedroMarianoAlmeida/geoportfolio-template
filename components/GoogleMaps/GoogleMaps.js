@@ -56,7 +56,7 @@ const GoogleMapComponent = (props) => {
 
             <WrappedMap
                 //Remove or commment the line bellow... this key works only in Developer's adress (https://geoportfolio-template.vercel.app/)
-                googleMapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBl4DJ7KtmPo6Kaoe3NKeYLDTkYzFMs3Pw'
+                googleMapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAHiSGC_b2Bakkya_hpGV_TBEVGIyNY2jQ'
 
                 /*
                 Steps to make this component works on your project:
