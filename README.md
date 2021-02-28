@@ -14,6 +14,9 @@ Click [here](https://geoportfolio-template.vercel.app/) to see the result.
 - HTML
 - Google Maps JavaScript API
 
+# Licence
+- Licensed under the [MIT License](LICENSE)
+
 # Run Locally
 
 1. Download this repo
